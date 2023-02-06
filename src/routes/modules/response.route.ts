@@ -7,7 +7,7 @@ import path from 'path'
 
 const router = express()
 
-router.get('/response', isAuth, controller.getResponses)
+router.get('/response', controller.getResponses)
 router.post('/response', isAuth, controller.addResponse)
 router.get('/search', isAuth, controller.searchResponses)
 

@@ -37,9 +37,8 @@ class ResponseService {
 
 
   public static async getResponses(query) {
-    const skip: number = parseInt(query.offset as string) * 20 || 0;
 
-    const sql = `SELECT * FROM responses ORDER BY id DESC LIMIT 20 OFFSET ${skip}`;
+    const sql = `SELECT category, count(*) AS count FROM responses group by category`;
     const result = await adb.query(sql)
     return result[0]
   }
